@@ -1,0 +1,80 @@
+sage: def Quaid(n):
+....:     for G in graphs (n):
+....:         if G.is_connected ():
+....:             D=G.distance_matrix()
+....:             spectrum=D.eigenvalues()
+....:             DistinctEigenvalues=uniq(spectrum)
+....:             DistinctNumberEigenvalues=len(DistinctEigenvalues)
+....:             OrderedSpectrum=sorted(spectrum)
+....:             if DistinctNumberEigenvalues==3 and OrderedSpectrum[1]==-4 and OrderedSpectrum[n-2]==0:
+....:                 show(G)
+....:                 print "spectrum:\t" ,OrderedSpectrum
+....:                 print "smallest Eigenvalue:\t" ,OrderedSpectrum[n-2]
+....:                 print "Distance Matrix:\t",D
+....: Quaid(8)
+....: 
+ Launched png viewer for Graphics object consisting of 21 graphics primitives
+spectrum:	[-4, -4, -4, 0, 0, 0, 0, 12]
+smallest Eigenvalue:	0
+Distance Matrix:	[0 1 1 2 2 3 1 2]
+[1 0 2 1 1 2 2 3]
+[1 2 0 1 3 2 2 1]
+[2 1 1 0 2 1 3 2]
+[2 1 3 2 0 1 1 2]
+[3 2 2 1 1 0 2 1]
+[1 2 2 3 1 2 0 1]
+[2 3 1 2 2 1 1 0]
+g = graphs.CompleteGraph(5)
+g.show()
+sage:  g = graphs.CompleteGraph(5)
+sage: g.show()
+Launched png viewer for Graphics object consisting of 16 graphics primitives
+sage: from sage.graphs.strongly_regular_db import apparently_feasible_parameters
+....: 
+....: small_feasible = apparently_feasible_parameters(20); small_feasible
+....: 
+{(5, 2, 0, 1),
+ (9, 4, 1, 2),
+ (10, 3, 0, 1),
+ (10, 6, 3, 4),
+ (13, 6, 2, 3),
+ (15, 6, 1, 3),
+ (15, 8, 4, 4),
+ (16, 5, 0, 2),
+ (16, 6, 2, 2),
+ (16, 9, 4, 6),
+ (16, 10, 6, 6),
+ (17, 8, 3, 4)}
+sage: sage: import drg
+....: sage: p = drg.DRGParameters([80, 63, 12], [1, 12, 60])
+....: sage: p.check_feasible()
+....: 
+---------------------------------------------------------------------------
+ImportError                               Traceback (most recent call last)
+<ipython-input-5-87221c07d5a4> in <module>()
+----> 1 import drg
+      2 p = drg.DRGParameters([Integer(80), Integer(63), Integer(12)], [Integer(1), Integer(12), Integer(60)])
+      3 p.check_feasible()
+
+ImportError: No module named drg
+sage: sage: r = var("r")
+....: sage: fam = drg.DRGParameters([2*r^2*(2*r + 1), (2*r - 1)*(2*r^2 + r + 1),
+....:  2*r^2], [1, 2*r^2 , r*(4*r^2 - 1)])
+....: sage: fam.check_feasible()
+....: sage: fam1 = fam.subs(r == 1)
+....: sage: fam1
+....: sage: fam2 = fam.subs(r == 2)
+....: sage: fam2
+....: sage: fam2.check_feasible()
+....: 
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-6-a333903e0a4b> in <module>()
+      1 r = var("r")
+----> 2 fam = drg.DRGParameters([Integer(2)*r**Integer(2)*(Integer(2)*r + Integer(1)), (Integer(2)*r - Integer(1))*(Integer(2)*r**Integer(2) + r + Integer(1)), Integer(2)*r**Integer(2)], [Integer(1), Integer(2)*r**Integer(2) , r*(Integer(4)*r**Integer(2) - Integer(1))])
+      3 fam.check_feasible()
+      4 fam1 = fam.subs(r == Integer(1))
+      5 fam1
+
+NameError: name 'drg' is not defined
+sage
